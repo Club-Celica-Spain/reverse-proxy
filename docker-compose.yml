@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  traefik:
+    image: traefik:v2.5.4
+    container_name: traefik
+    domainname: clubcelica.es
+    restart: always
+    networks:
+      - wan
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # Sets the timezone of the host to the container
+      - /etc/localtime:/etc/localtime:ro
+      # Mounts docker socket inside the container
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Traefik configuration files
+      - ./config/traefik.yml:/etc/traefik/traefik.yml
+      - ./config/dynamic.yml:/etc/traefik/dynamic.yml
+      # SSL
+      - ./acme:/acme
+      # Logs
+      - /var/log/traefik:/var/log/traefik
+    labels:
+      traefik.enable: "false"
+      # Catch all HTTP requests
+      traefik.http.routers.app.rule: "HostRegexp(`{host:.+}`)"
+      traefik.http.routers.app.entrypoints: "web"
+      # Add middleware
+      traefik.http.routers.app.middlewares: "https-redirect@file"
+
+networks:
+  wan:
+    external: true

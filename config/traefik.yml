@@ -1,0 +1,46 @@
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedbydefault: false
+    network: wan
+  file:
+    filename: "/etc/traefik/dynamic.yml"
+    watch: true
+api:
+  dashboard: false
+  insecure: false
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+
+log:
+  level: ERROR
+  filePath: "/var/log/traefik/traefik.log"
+  format: json
+
+accessLog:
+  filePath: "/var/log/traefik/access.log"
+  format: json
+  fields:
+    defaultMode: drop
+    names:
+      StartUTC: keep
+      Duration: keep
+      OriginStatus: keep
+      RequestMethod: keep
+      ClientAddr: keep
+    headers:
+      defaultMode: drop
+
+certificatesResolvers:
+  le:
+    acme:
+      email: "ti@clubcelica.es"
+      storage: "/acme/acme.json"
+      httpChallenge:
+        entryPoint: web
+
+global:
+  sendAnonymousUsage: false
