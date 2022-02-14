@@ -25,11 +25,6 @@ services:
       - /var/log/traefik:/var/log/traefik
     labels:
       traefik.enable: "false"
-      # Catch all HTTP requests
-      traefik.http.routers.app.rule: "HostRegexp(`{host:.+}`)"
-      traefik.http.routers.app.entrypoints: "web"
-      # Add middleware
-      traefik.http.routers.app.middlewares: "https-redirect@file"
 
 networks:
   wan:
