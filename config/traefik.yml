@@ -18,11 +18,16 @@ entryPoints:
           to: websecure
           scheme: https
           permanent: true
+      middlewares:
+        - crowdsec-bouncer@file
   websecure:
     address: ":443"
+    http:
+      middlewares:
+        - crowdsec-bouncer@file
 
 log:
-  level: ERROR
+  level: INFO
   filePath: "/var/log/traefik/traefik.log"
   format: json
 
