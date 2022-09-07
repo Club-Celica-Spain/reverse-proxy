@@ -58,7 +58,7 @@ certificatesResolvers:
 global:
   sendAnonymousUsage: false
   
- experimental:
+experimental:
   localPlugins:
     geoblock:
       moduleName: github.com/PascalMinder/geoblock
