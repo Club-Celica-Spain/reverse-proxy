@@ -54,7 +54,6 @@ http:
             - PR # Puerto Rico
             - UY # Uruguay
             - VE # Venezuela (Bolivarian Republic of)
-
     compression:
       compress:
         excludedContentTypes:
