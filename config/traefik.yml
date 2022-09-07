@@ -20,11 +20,13 @@ entryPoints:
           permanent: true
       middlewares:
         - crowdsec-bouncer@file
+        - geoblock@file
   websecure:
     address: ":443"
     http:
       middlewares:
         - crowdsec-bouncer@file
+        - geoblock@file
 
 log:
   level: INFO
@@ -55,3 +57,8 @@ certificatesResolvers:
 
 global:
   sendAnonymousUsage: false
+  
+ experimental:
+  localPlugins:
+    geoblock:
+      moduleName: github.com/PascalMinder/geoblock

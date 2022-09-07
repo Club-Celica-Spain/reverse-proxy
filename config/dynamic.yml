@@ -20,6 +20,41 @@ http:
       forwardauth:
         address: http://bouncer-traefik:6085/api/v1/forwardAuth
         trustForwardHeader: true
+    geoblock:
+      plugin:
+        geoblock:
+          allowLocalRequests: true
+          logLocalRequests: false
+          logAllowedRequests: false
+          logApiRequests: true
+          api: "https://get.geojs.io/v1/ip/country/{ip}"
+          apiTimeoutMs: 750
+          cacheSize: 15
+          forceMonthlyUpdate: true
+          allowUnknownCountries: false
+          unknownCountryApiResponse: "nil"
+          countries:
+            - ES # Spain
+            - FR # France
+            - PT # Portugal
+            - AR # Argentina
+            - BO # Bolivia (Plurinational State of)
+            - CL # Chile
+            - CO # Colombia
+            - CR # Costa Rica
+            - DO # Dominican Republic (the)
+            - EC # Ecuador
+            - SV # El Salvador
+            - GT # Guatemala
+            - HN # Honduras
+            - NI # Nicaragua
+            - PA # Panama
+            - PY # Paraguay
+            - PE # Peru
+            - PR # Puerto Rico
+            - UY # Uruguay
+            - VE # Venezuela (Bolivarian Republic of)
+
     compression:
       compress:
         excludedContentTypes:

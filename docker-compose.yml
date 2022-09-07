@@ -19,6 +19,8 @@ services:
       # Traefik configuration files
       - ./config/traefik.yml:/etc/traefik/traefik.yml
       - ./config/dynamic.yml:/etc/traefik/dynamic.yml
+      # Traefik plugins
+      - ./plugin/geoblock:/plugins-local/src/github.com/PascalMinder/geoblock
       # SSL
       - ./acme:/acme
       # Logs
