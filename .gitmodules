@@ -1,0 +1,3 @@
+[submodule "plugin/geoblock"]
+	path = plugin/geoblock
+	url = https://github.com/PascalMinder/geoblock.git
