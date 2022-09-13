@@ -35,6 +35,7 @@ http:
           unknownCountryApiResponse: "nil"
           countries:
             - ES # Spain
+            - AD # Andorra
             - FR # France
             - PT # Portugal
             - AR # Argentina
@@ -47,6 +48,7 @@ http:
             - SV # El Salvador
             - GT # Guatemala
             - HN # Honduras
+            - MX # Mexico
             - NI # Nicaragua
             - PA # Panama
             - PY # Paraguay
