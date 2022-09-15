@@ -27,6 +27,8 @@ entryPoints:
       middlewares:
         - crowdsec-bouncer@file
         - geoblock@file
+    http3:
+      advertisedPort: "443"
 
 log:
   level: INFO
@@ -59,6 +61,7 @@ global:
   sendAnonymousUsage: false
   
 experimental:
+  http3: true
   localPlugins:
     geoblock:
       moduleName: github.com/PascalMinder/geoblock
