@@ -35,9 +35,11 @@ http:
           unknownCountryApiResponse: "nil"
           countries:
             - ES # Spain
+            - US # United States of America (the)
             - AD # Andorra
             - FR # France
             - PT # Portugal
+            - IT # Italy
             - AR # Argentina
             - BO # Bolivia (Plurinational State of)
             - CL # Chile
