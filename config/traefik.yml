@@ -52,10 +52,10 @@ accessLog:
 certificatesResolvers:
   le:
     acme:
+      caServer: https://acme-v02.api.letsencrypt.org/directory
       email: "ti@clubcelica.es"
       storage: "/acme/acme.json"
-      httpChallenge:
-        entryPoint: web
+      tlsChallenge: {}
 
 global:
   sendAnonymousUsage: false
