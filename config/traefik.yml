@@ -19,13 +19,11 @@ entryPoints:
           scheme: https
           permanent: true
       middlewares:
-        - crowdsec-bouncer@file
         - geoblock@file
   websecure:
     address: ":443"
     http:
       middlewares:
-        - crowdsec-bouncer@file
         - geoblock@file
     http3:
       advertisedPort: "443"

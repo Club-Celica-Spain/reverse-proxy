@@ -16,10 +16,6 @@ tls:
 
 http:
   middlewares:
-    crowdsec-bouncer:
-      forwardauth:
-        address: http://bouncer-traefik:6085/api/v1/forwardAuth
-        trustForwardHeader: true
     geoblock:
       plugin:
         geoblock:
